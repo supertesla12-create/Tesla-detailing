@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tesla Detailing — детейлинг-центр в Омске</title>
+  <meta name="description" content="Tesla Detailing — детейлинг-центр в Омске: полировка, керамика, химчистка салона, бронирование плёнкой. Запись по телефону и онлайн.">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AutoDetailing",
+    "name": "Tesla Detailing",
+    "description": "Детейлинг-центр в Омске: полировка кузова, керамические покрытия, химчистка салона, бронирование плёнкой PPF.",
+    "telephone": "+7 (923) 673-54-94",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ул. Мира, 9/2",
+      "addressLocality": "Омск",
+      "addressCountry": "RU"
+    },
+    "openingHours": "Mo-Su 09:00-21:00",
+    "url": "https://t.me/teslavs"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type": "Question", "name": "Сколько времени занимает детейлинг?",
+       "acceptedAnswer": {"@type": "Answer", "text": "Зависит от работ: комплексная мойка — 1–2 часа, химчистка салона — 4–6 часов, полировка кузова — от 1 дня, керамика — 2–3 дня, бронирование плёнкой — от 1 до 3 дней."}},
+      {"@type": "Question", "name": "Нужно ли мыть машину перед приездом?",
+       "acceptedAnswer": {"@type": "Answer", "text": "Нет, мойка и подготовка поверхности — часть работы. Приезжайте как есть."}},
+      {"@type": "Question", "name": "Как часто нужно обновлять керамику?",
+       "acceptedAnswer": {"@type": "Answer", "text": "Базовые покрытия служат около года, более плотные — до 2 лет. Раз в год рекомендуем диагностику и поддерживающий уход."}},
+      {"@type": "Question", "name": "Можно ли мыть машину на автомойке после керамики или PPF?",
+       "acceptedAnswer": {"@type": "Answer", "text": "Можно, лучше бесконтактно и без жёстких щёток. Первая мойка — не раньше чем через 7 дней после нанесения."}},
+      {"@type": "Question", "name": "Что лучше — керамика или плёнка PPF?",
+       "acceptedAnswer": {"@type": "Answer", "text": "Керамика даёт блеск и гидрофоб, но не защищает от сколов. PPF физически защищает лакокрасочное покрытие. Часто делают оба."}},
+      {"@type": "Question", "name": "Даёте ли гарантию и что она покрывает?",
+       "acceptedAnswer": {"@type": "Answer", "text": "Да, гарантия в договоре: от 1 года на полировку и до 2 лет на керамику. Покрывает дефекты нанесения."}},
+      {"@type": "Question", "name": "Можно ли приехать без записи?",
+       "acceptedAnswer": {"@type": "Answer", "text": "Мы работаем по записи. Оставьте заявку или позвоните — подберём удобное время."}}
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- ШАПКА -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <a href="#top" class="logo">
+        <span class="logo-mark">TD</span>
+        <span class="logo-text">Tesla<em>Detailing</em></span>
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="#services">Услуги</a>
+        <a href="#process">Этапы</a>
+        <a href="#works">Работы</a>
+        <a href="#reviews">Отзывы</a>
+        <a href="#faq">Вопросы</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <div class="header-actions">
+        <a href="tel:+79236735494" class="header-phone">+7 (923) 673-54-94</a>
+        <a href="#booking" class="btn btn-primary btn-sm">Записаться</a>
+      </div>
+
+      <button class="burger" id="burger" aria-label="Меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ГЕРОЙ -->
+  <section class="hero">
+    <img class="hero-bg" src="images/hero.jpg" alt="" aria-hidden="true">
+    <div class="hero-glow"></div>
+    <div class="container hero-inner">
+      <div class="hero-text reveal">
+        <p class="badge">Детейлинг-центр в Омске</p>
+        <h1>Вернём вашему авто <span class="accent">заводской блеск</span></h1>
+        <p class="lead">
+          Полировка, керамические покрытия, химчистка салона и бронирование плёнкой.
+          Работаем с кузовом как с ювелирным изделием — по шагам, с гарантией результата.
+        </p>
+        <div class="hero-cta">
+          <a href="#booking" class="btn btn-primary">Оставить заявку</a>
+          <a href="tel:+79236735494" class="btn btn-ghost">Позвонить</a>
+        </div>
+        <ul class="hero-stats">
+          <li><strong>8+</strong><span>лет на рынке</span></li>
+          <li><strong>4 000+</strong><span>авто в работе</span></li>
+          <li><strong>2 года</strong><span>гарантия на керамику</span></li>
+        </ul>
+      </div>
+
+      <div class="hero-card reveal">
+        <div class="hero-card-inner">
+          <div class="hero-card-badge">от 1 500 ₽</div>
+          <h3>Комплексный детейлинг</h3>
+          <p>Мойка + очистка кузова + защита. Быстро, аккуратно, по регламенту.</p>
+          <ul class="check-list">
+            <li>Ручная бесконтактная мойка</li>
+            <li>Очистка дисков и стёкол</li>
+            <li>Защитный состав на 3 месяца</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПРЕИМУЩЕСТВА -->
+  <section class="section" id="advantages">
+    <div class="container">
+      <h2 class="section-title">Почему выбирают нас</h2>
+      <p class="section-sub">Спокойный сервис без навязывания и сюрпризов в чеке.</p>
+
+      <div class="grid grid-advantages">
+        <div class="card reveal">
+          <div class="icon">🛡️</div>
+          <h3>Гарантия на работы</h3>
+          <p>От 1 года на полировку и до 2 лет на керамику. Фиксируем в договоре.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon">🔬</div>
+          <h3>Честная диагностика</h3>
+          <p>Сначала осмотр и замеры толщины ЛКП, потом — предложение по работам.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon">🧪</div>
+          <h3>Премиальная химия</h3>
+          <p>Составы проверенных брендов: без вреда для лака, пластика и хрома.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon">⏱️</div>
+          <h3>Сроки по договору</h3>
+          <p>Называем реальные сроки и держим их. Сообщаем о ходе работ.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon">📸</div>
+          <h3>Фотоотчёт</h3>
+          <p>Присылаем «до/после» по каждому этапу — видно, за что платите.</p>
+        </div>
+        <div class="card reveal">
+          <div class="icon">☕</div>
+          <h3>Комфортная зона</h3>
+          <p>Тёплое помещение, кофе и Wi-Fi. Забирать авто приятно.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- УСЛУГИ -->
+  <section class="section section-alt" id="services">
+    <div class="container">
+      <h2 class="section-title">Услуги и цены</h2>
+      <p class="section-sub">Итоговую стоимость подтверждаем после осмотра автомобиля.</p>
+
+      <div class="grid grid-services">
+        <article class="service-card reveal">
+          <h3>Комплексная мойка</h3>
+          <p>Ручная мойка кузова, очистка дисков, стёкол, сушка микрофиброй.</p>
+          <div class="price">от 1 500 ₽</div>
+        </article>
+        <article class="service-card reveal">
+          <h3>Химчистка салона</h3>
+          <p>Глубокая очистка текстиля, кожи, пластика. Устранение запахов и пятен.</p>
+          <div class="price">от 5 000 ₽</div>
+        </article>
+        <article class="service-card reveal">
+          <h3>Полировка кузова</h3>
+          <p>Абразивная и защитная полировка. Убираем царапины, возвращаем глубину цвета.</p>
+          <div class="price">от 8 000 ₽</div>
+        </article>
+        <article class="service-card reveal">
+          <h3>Керамическое покрытие</h3>
+          <p>Глянцевая или матовая керамика на 1–2 года. Гидрофоб и защита от реагентов.</p>
+          <div class="price">от 25 000 ₽</div>
+        </article>
+        <article class="service-card reveal">
+          <h3>Бронирование плёнкой (PPF)</h3>
+          <p>Защита ЛКП полиуретановой плёнкой. Зоны: бампер, капот, пороги, фары.</p>
+          <div class="price">от 40 000 ₽</div>
+        </article>
+        <article class="service-card reveal">
+          <h3>Покрытие стёкол «антидождь»</h3>
+          <p>Гидрофобное покрытие: вода и грязь скатываются, видимость в дождь выше.</p>
+          <div class="price">от 2 500 ₽</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ЭТАПЫ -->
+  <section class="section" id="process">
+    <div class="container">
+      <h2 class="section-title">Как мы работаем</h2>
+      <p class="section-sub">Понятный процесс от звонка до сдачи авто.</p>
+
+      <ol class="steps">
+        <li class="step reveal">
+          <span class="step-num">01</span>
+          <h3>Заявка и осмотр</h3>
+          <p>Уточняем задачу по телефону, затем бесплатно осматриваем авто и называем цену.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-num">02</span>
+          <h3>Мойка и подготовка</h3>
+          <p>Тщательная мойка и очистка — 80% результата детейлинга зависит от подготовки.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-num">03</span>
+          <h3>Основные работы</h3>
+          <p>Полировка, нанесение покрытий или плёнки. Фотоотчёт по каждому этапу.</p>
+        </li>
+        <li class="step reveal">
+          <span class="step-num">04</span>
+          <h3>Сдача и гарантия</h3>
+          <p>Показываем результат, даём рекомендации по уходу и гарантийный талон.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- РАБОТЫ -->
+  <section class="section section-alt" id="works">
+    <div class="container">
+      <h2 class="section-title">Наши работы</h2>
+      <p class="section-sub">Примеры по направлениям — от полировки до защитных покрытий. Реальные фото «до/после» добавим из портфолио.</p>
+
+      <div class="gallery">
+        <figure class="gallery-item reveal">
+          <img src="images/polish.jpg" alt="Полировка кузова автомобиля: машинка с синим полировальным кругом на чёрном крыле" loading="lazy" width="1200" height="900">
+          <figcaption>Полировка кузова</figcaption>
+        </figure>
+        <figure class="gallery-item reveal">
+          <img src="images/ceramic.jpg" alt="Керамическое покрытие: вода собирается в ровные капли на глянцевом чёрном капоте" loading="lazy" width="1200" height="900">
+          <figcaption>Керамика</figcaption>
+        </figure>
+        <figure class="gallery-item reveal">
+          <img src="images/interior.jpg" alt="Химчистка салона: чистка кожаного сиденья щёткой с пеной" loading="lazy" width="1200" height="900">
+          <figcaption>Химчистка салона</figcaption>
+        </figure>
+        <figure class="gallery-item reveal">
+          <img src="images/ppf.jpg" alt="Бронирование кузова полиуретановой плёнкой: нанесение плёнки на капот ракелем" loading="lazy" width="1200" height="900">
+          <figcaption>Бронирование PPF</figcaption>
+        </figure>
+        <figure class="gallery-item reveal">
+          <img src="images/headlights.jpg" alt="Полировка фар: половина фары мутная, вторая — прозрачная после полировки" loading="lazy" width="1200" height="900">
+          <figcaption>Полировка фар</figcaption>
+        </figure>
+        <figure class="gallery-item reveal">
+          <img src="images/rain.jpg" alt="Покрытие антидождь: капли воды скатываются со стекла автомобиля" loading="lazy" width="1200" height="900">
+          <figcaption>Антидождь</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ДО / ПОСЛЕ -->
+  <section class="section" id="beforeafter">
+    <div class="container">
+      <h2 class="section-title">До и после</h2>
+      <p class="section-sub">Потяните ползунок в сторону — увидите разницу. Кадры демонстрационные: скоро заменим на фото реальных работ.</p>
+
+      <div class="ba-grid">
+        <article class="ba-item reveal">
+          <div class="ba-slider">
+            <img class="ba-img" src="images/after-polish.jpg" alt="После полировки кузова: зеркальный блеск чёрного лака" draggable="false" loading="lazy">
+            <div class="ba-before">
+              <img class="ba-img" src="images/before-polish.jpg" alt="До полировки кузова: матовый лак с голограммами и мелкими царапинами" draggable="false" loading="lazy">
+            </div>
+            <span class="ba-line"></span>
+            <span class="ba-knob">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.6 6.6 4.8 12l4.8 5.4V6.6zm4.8 0v10.8L19.2 12l-4.8-5.4z"/></svg>
+            </span>
+            <span class="ba-badge ba-badge-before">До</span>
+            <span class="ba-badge ba-badge-after">После</span>
+            <input class="ba-range" type="range" min="0" max="100" value="50" step="0.1" aria-label="Сравнить: полировка кузова — до и после">
+          </div>
+          <div class="ba-caption">
+            <h3>Полировка кузова</h3>
+            <p>Убрали голограммы от автомойки и мелкие царапины, вернули глубину чёрного цвета.</p>
+            <p class="ba-meta">Toyota Camry · 1 день</p>
+          </div>
+        </article>
+
+        <article class="ba-item reveal">
+          <div class="ba-slider">
+            <img class="ba-img" src="images/after-headlight.jpg" alt="После полировки фары: прозрачное чистое стекло, как новое" draggable="false" loading="lazy">
+            <div class="ba-before">
+              <img class="ba-img" src="images/before-headlight.jpg" alt="До полировки фары: пожелтевшее мутное стекло с микротрещинами" draggable="false" loading="lazy">
+            </div>
+            <span class="ba-line"></span>
+            <span class="ba-knob">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.6 6.6 4.8 12l4.8 5.4V6.6zm4.8 0v10.8L19.2 12l-4.8-5.4z"/></svg>
+            </span>
+            <span class="ba-badge ba-badge-before">До</span>
+            <span class="ba-badge ba-badge-after">После</span>
+            <input class="ba-range" type="range" min="0" max="100" value="50" step="0.1" aria-label="Сравнить: полировка фар — до и после">
+          </div>
+          <div class="ba-caption">
+            <h3>Полировка фар</h3>
+            <p>Убрали желтизну и помутнение — свет стал ярче и ровнее, фара выглядит как новая.</p>
+            <p class="ba-meta">Kia Sportage · 3 часа</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ОТЗЫВЫ -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <h2 class="section-title">Отзывы клиентов</h2>
+      <p class="section-sub">Собираем обратную связь после каждой работы.</p>
+
+      <div class="grid grid-reviews">
+        <blockquote class="review reveal">
+          <p>«Делал керамику на Omoda. Машина как из салона, вода просто слетает. Отдельно отмечу фотоотчёт — видно каждый этап.»</p>
+          <footer>Дмитрий, <span>Omoda C5</span></footer>
+        </blockquote>
+        <blockquote class="review reveal">
+          <p>«Химчистка после ребёнка и кофе на сиденье — вывели всё. Запаха нет совсем. Приятно, что честно назвали цену заранее.»</p>
+          <footer>Анастасия, <span>Kia Sportage</span></footer>
+        </blockquote>
+        <blockquote class="review reveal">
+          <p>«Бронировал перед поездкой на юг. Сделали за день, аккуратно, без пузырей. Рекомендую.»</p>
+          <footer>Сергей, <span>Toyota Camry</span></footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt" id="faq">
+    <div class="container">
+      <h2 class="section-title">Частые вопросы</h2>
+      <p class="section-sub">Собрали то, о чём спрашивают чаще всего. Не нашли ответ — напишите в Telegram.</p>
+
+      <div class="faq" id="faqList">
+        <details class="faq-item reveal">
+          <summary>Сколько времени занимает детейлинг?</summary>
+          <div class="faq-body"><div>
+            <p>Зависит от работ: комплексная мойка — 1–2 часа, химчистка салона — 4–6 часов,
+            полировка кузова — от 1 дня, керамика — 2–3 дня вместе с подготовкой и сушкой,
+            бронирование плёнкой — от 1 до 3 дней по объёму зон. Точный срок называем после осмотра
+            и держим его.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>Нужно ли мыть машину перед приездом?</summary>
+          <div class="faq-body"><div>
+            <p>Нет. Мойка и подготовка поверхности — часть работы, и делать её нужно в правильной
+            последовательности. Приезжайте как есть: мы сами отмоем, обезжирим и подготовим кузов.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>Как часто нужно обновлять керамику?</summary>
+          <div class="faq-body"><div>
+            <p>Зависит от состава и условий эксплуатации: базовые покрытия служат около года,
+            более плотные — до 2 лет. Раз в год рекомендуем приезжать на диагностику гидрофобных
+            свойств и поддерживающий уход — так покрытие живёт дольше.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>Можно ли мыть машину на автомойке после керамики или PPF?</summary>
+          <div class="faq-body"><div>
+            <p>Можно, но лучше бесконтактно и без жёстких щёток. После нанесения покрытий мы даём
+            памятку по уходу: первая мойка — не раньше чем через 7 дней, без абразивных составов
+            и полиролей.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>Что лучше — керамика или плёнка PPF?</summary>
+          <div class="faq-body"><div>
+            <p>Это разные задачи. Керамика даёт блеск, гидрофоб и облегчает уход, но не спасает
+            от сколов. PPF физически защищает лакпокраску от камней, веток и царапин. Часто
+            делают оба: плёнку на уязвимые зоны и керамику сверху.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>Даёте ли гарантию и что она покрывает?</summary>
+          <div class="faq-body"><div>
+            <p>Да, гарантия фиксируется в договоре: от 1 года на полировку и до 2 лет на керамику.
+            Она покрывает дефекты нанесения — отслоения, помутнение, неравномерность. Механические
+            повреждения и результат самостоятельного ухода в гарантию не входят.</p>
+          </div></div>
+        </details>
+
+        <details class="faq-item reveal">
+          <summary>Можно ли приехать без записи?</summary>
+          <div class="faq-body"><div>
+            <p>Мы работаем по записи — так вы не ждёте и получаете нужное время в боксе.
+            Оставьте заявку или позвоните: подберём удобный день и час.</p>
+          </div></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ФОРМА -->
+  <section class="section section-cta" id="booking">
+    <div class="container cta-inner">
+      <div class="cta-text reveal">
+        <h2>Запишитесь на детейлинг</h2>
+        <p>Оставьте заявку — перезвоним в течение 15 минут, уточним задачу и свободное время.</p>
+        <ul class="check-list check-list-light">
+          <li>Бесплатный осмотр и оценка</li>
+          <li>Честная цена без сюрпризов</li>
+          <li>Гарантия на работы</li>
+        </ul>
+      </div>
+
+      <form class="booking-form reveal" id="bookingForm" novalidate>
+        <div class="form-group">
+          <label for="name">Ваше имя</label>
+          <input type="text" id="name" name="name" placeholder="Как к вам обращаться" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Телефон</label>
+          <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required>
+        </div>
+        <div class="form-group">
+          <label for="car">Марка и модель авто</label>
+          <input type="text" id="car" name="car" placeholder="Например: Tesla Model 3" required>
+        </div>
+        <div class="form-group">
+          <label for="service">Услуга</label>
+          <select id="service" name="service" required>
+            <option value="">— Выберите услугу —</option>
+            <option value="wash">Комплексная мойка</option>
+            <option value="interior">Химчистка салона</option>
+            <option value="polish">Полировка кузова</option>
+            <option value="ceramic">Керамическое покрытие</option>
+            <option value="ppf">Бронирование плёнкой (PPF)</option>
+            <option value="rain">Антидождь на стёкла</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date">Желаемая дата</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
+        <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных.<br>
+          Заявка откроется в Telegram (@teslavs) — текст нужно будет вставить в чат и отправить.</p>
+        <div id="formResponse" class="form-response" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- КОНТАКТЫ -->
+  <section class="section" id="contacts">
+    <div class="container">
+      <h2 class="section-title">Контакты</h2>
+      <div class="contacts-grid">
+        <div class="contact-card reveal">
+          <h3>Адрес</h3>
+          <p>г. Омск, ул. Мира, 9/2</p>
+        </div>
+        <div class="contact-card reveal">
+          <h3>Телефон</h3>
+          <p><a href="tel:+79236735494">+7 (923) 673-54-94</a></p>
+          <div class="messengers">
+            <a class="msg" href="https://t.me/teslavs" target="_blank" rel="noopener">Telegram</a>
+          </div>
+        </div>
+        <div class="contact-card reveal">
+          <h3>Часы работы</h3>
+          <p>Ежедневно<br>09:00 — 21:00</p>
+        </div>
+        <div class="contact-card reveal">
+          <h3>Telegram</h3>
+          <p><a href="https://t.me/teslavs" target="_blank" rel="noopener">@teslavs</a></p>
+          <p class="muted small">Отвечаем в течение 15 минут</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ПОДВАЛ -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-logo">Tesla<em>Detailing</em></p>
+      <p class="footer-text">Детейлинг-центр в Омске. Полировка, керамика, химчистка, PPF.</p>
+      <p class="footer-contacts">
+        <a href="tel:+79236735494">+7 (923) 673-54-94</a>
+        <span class="dot">•</span>
+        <a href="https://t.me/teslavs" target="_blank" rel="noopener">@teslavs</a>
+        <span class="dot">•</span>
+        г. Омск, ул. Мира, 9/2
+      </p>
+      <p class="footer-copy">© <span id="year">2026</span> Tesla Detailing. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <!-- ПЛАВАЮЩИЕ КНОПКИ -->
+  <div class="float-stack">
+    <a class="float-btn float-tg" href="https://t.me/teslavs" target="_blank" rel="noopener"
+       aria-label="Написать в Telegram" title="Написать в Telegram">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9.04 15.51l-.38 5.35c.54 0 .78-.23 1.06-.5l2.55-2.44 5.28 3.86c.97.53 1.66.25 1.92-.89l3.48-16.3c.31-1.42-.52-1.98-1.45-1.63L1.5 10.2c-1.38.54-1.36 1.3-.24 1.65l5.2 1.62L18.5 6.5c.57-.36 1.09-.16.66.2L9.04 15.5z"/></svg>
+    </a>
+    <button class="float-btn to-top" id="toTop" type="button" aria-label="Наверх" title="Наверх">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l7 7-1.4 1.4L13 8.8V19h-2V8.8l-4.6 4.6L5 12z"/></svg>
+    </button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
