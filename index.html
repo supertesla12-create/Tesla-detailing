@@ -6,6 +6,8 @@
   <title>Tesla Detailing — детейлинг-центр в Омске</title>
   <meta name="description" content="Tesla Detailing — детейлинг-центр в Омске: полировка, керамика, химчистка салона, бронирование плёнкой. Запись по телефону и онлайн.">
   <link rel="stylesheet" href="styles.css">
+  <!-- 3D-просмотрщик (Google model-viewer), грузится с CDN -->
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@google/model-viewer@4.1.0/dist/model-viewer.min.js"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -48,6 +50,26 @@
 </head>
 <body>
 
+  <!-- ФОНОВАЯ ИСТОРИЯ: сквозной слой, кадры меняются при прокрутке -->
+  <div class="bg-stage" id="bgStage" aria-hidden="true">
+    <img class="bg-frame is-active" src="images/stage-00-arrival.jpg" alt="">
+    <img class="bg-frame" src="images/stage-01-body.jpg" alt="">
+    <img class="bg-frame" data-src="images/stage-02-polish.jpg" alt="">
+    <img class="bg-frame" data-src="images/stage-03-paint.jpg" alt="">
+    <img class="bg-frame" data-src="images/stage-04-ceramic.jpg" alt="">
+    <img class="bg-frame" data-src="images/stage-05-interior.jpg" alt="">
+    <img class="bg-frame" data-src="images/stage-06-ppf.jpg" alt="">
+    <img class="bg-frame" data-src="images/stage-07-headlights.jpg" alt="">
+    <img class="bg-frame" data-src="images/stage-08-rain.jpg" alt="">
+    <img class="bg-frame" data-src="images/stage-09-gloss.jpg" alt="">
+    <img class="bg-frame" data-src="images/stage-10-upholstery.jpg" alt="">
+    <img class="bg-frame" data-src="images/stage-11-tuning.jpg" alt="">
+    <img class="bg-frame" data-src="images/stage-12-engine.jpg" alt="">
+    <img class="bg-frame" data-src="images/stage-13-wheels.jpg" alt="">
+    <img class="bg-frame" data-src="images/stage-14-final.jpg" alt="">
+  </div>
+  <div class="bg-scrim" aria-hidden="true"></div>
+
   <!-- ШАПКА -->
   <header class="site-header" id="top">
     <div class="container header-inner">
@@ -59,7 +81,6 @@
       <nav class="nav" id="nav">
         <a href="#services">Услуги</a>
         <a href="#process">Этапы</a>
-        <a href="#works">Работы</a>
         <a href="#reviews">Отзывы</a>
         <a href="#faq">Вопросы</a>
         <a href="#contacts">Контакты</a>
@@ -76,9 +97,8 @@
     </div>
   </header>
 
-  <!-- ГЕРОЙ -->
-  <section class="hero">
-    <img class="hero-bg" src="images/hero.jpg" alt="" aria-hidden="true">
+  <!-- ГЕРОЙ (кадр 00 — прибытие) -->
+  <section class="hero" data-bg-frame="0">
     <div class="hero-glow"></div>
     <div class="container hero-inner">
       <div class="hero-text reveal">
@@ -155,110 +175,213 @@
     </div>
   </section>
 
-  <!-- УСЛУГИ -->
+  <!-- УСЛУГИ: интерактивная карта деталей -->
   <section class="section section-alt" id="services">
     <div class="container">
-      <h2 class="section-title">Услуги и цены</h2>
-      <p class="section-sub">Итоговую стоимость подтверждаем после осмотра автомобиля.</p>
+      <h2 class="section-title">Что нужно вашему авто?</h2>
+      <p class="section-sub">Нажмите на деталь машины — страница сама перейдёт к нужному этапу с ценой.</p>
 
-      <div class="grid grid-services">
-        <article class="service-card reveal">
-          <h3>Комплексная мойка</h3>
-          <p>Ручная мойка кузова, очистка дисков, стёкол, сушка микрофиброй.</p>
-          <div class="price">от 1 500 ₽</div>
-        </article>
-        <article class="service-card reveal">
-          <h3>Химчистка салона</h3>
-          <p>Глубокая очистка текстиля, кожи, пластика. Устранение запахов и пятен.</p>
-          <div class="price">от 5 000 ₽</div>
-        </article>
-        <article class="service-card reveal">
-          <h3>Полировка кузова</h3>
-          <p>Абразивная и защитная полировка. Убираем царапины, возвращаем глубину цвета.</p>
-          <div class="price">от 8 000 ₽</div>
-        </article>
-        <article class="service-card reveal">
-          <h3>Керамическое покрытие</h3>
-          <p>Глянцевая или матовая керамика на 1–2 года. Гидрофоб и защита от реагентов.</p>
-          <div class="price">от 25 000 ₽</div>
-        </article>
-        <article class="service-card reveal">
-          <h3>Бронирование плёнкой (PPF)</h3>
-          <p>Защита ЛКП полиуретановой плёнкой. Зоны: бампер, капот, пороги, фары.</p>
-          <div class="price">от 40 000 ₽</div>
-        </article>
-        <article class="service-card reveal">
-          <h3>Покрытие стёкол «антидождь»</h3>
-          <p>Гидрофобное покрытие: вода и грязь скатываются, видимость в дождь выше.</p>
-          <div class="price">от 2 500 ₽</div>
-        </article>
+      <div class="car-map reveal">
+        <div class="car-stage">
+          <div class="car-stage-bg" aria-hidden="true"></div>
+          <model-viewer class="car-viewer" id="carViewer"
+          src="models/gtr-r35/scene-opt.glb"
+          alt="Nissan GT-R R35 в 3D — покрутите мышью или пальцем и выберите услугу"
+          camera-controls
+          touch-action="pan-y"
+          camera-orbit="32deg 76deg 110%"
+          camera-target="0 1.12 -0.1"
+          min-field-of-view="16deg"
+          max-field-of-view="45deg"
+          shadow-intensity="2"
+          shadow-softness="0.4"
+          exposure="0.95"
+          environment-image="models/env/studio-1k.hdr"
+          loading="lazy"
+          reveal="auto">
+          <div class="car-loading" slot="progress-bar">Загружаю 3D-модель…</div>
+
+          <a class="hotspot3d" slot="hotspot-hl" href="#stage-7"  data-position="-0.70 0.75 2.02" data-normal="-0.6 0.3 0.7"   aria-label="Полировка фар"><span class="hotspot-dot"></span><span class="hotspot-label">Полировка фар</span></a>
+          <a class="hotspot3d" slot="hotspot-ppf" href="#stage-6" data-position="0.45 0.45 2.29"   data-normal="0.3 0.2 0.95"  aria-label="Бронирование плёнкой PPF"><span class="hotspot-dot"></span><span class="hotspot-label">Бронирование PPF</span></a>
+          <a class="hotspot3d" slot="hotspot-paint" href="#stage-3" data-position="-0.93 0.62 1.30" data-normal="-1 0 0"        aria-label="Покраска"><span class="hotspot-dot"></span><span class="hotspot-label">Покраска</span></a>
+          <a class="hotspot3d" slot="hotspot-engine" href="#stage-12" data-position="0.35 0.99 1.70" data-normal="0 1 0"     aria-label="Детейлинг двигателя"><span class="hotspot-dot"></span><span class="hotspot-label">Детейлинг двигателя</span></a>
+          <a class="hotspot3d" slot="hotspot-rain" href="#stage-8" data-position="0.20 1.20 0.55"  data-normal="0 0.35 0.94" aria-label="Антидождь на стёкла"><span class="hotspot-dot"></span><span class="hotspot-label">Антидождь</span></a>
+          <a class="hotspot3d" slot="hotspot-gloss" href="#stage-9" data-position="0 1.39 -0.45"   data-normal="0 1 0"       aria-label="Покрытие лаком"><span class="hotspot-dot"></span><span class="hotspot-label">Покрытие лаком</span></a>
+          <a class="hotspot3d" slot="hotspot-interior" href="#stage-5" data-position="0.78 1.10 -0.85" data-normal="1 0 0"  aria-label="Химчистка салона"><span class="hotspot-dot"></span><span class="hotspot-label">Химчистка салона</span></a>
+          <a class="hotspot3d" slot="hotspot-polish" href="#stage-2" data-position="-0.93 0.62 0.00" data-normal="-1 0 0"     aria-label="Полировка кузова"><span class="hotspot-dot"></span><span class="hotspot-label">Полировка кузова</span></a>
+          <a class="hotspot3d" slot="hotspot-uphol" href="#stage-10" data-position="-0.30 1.24 -1.35" data-normal="0 0.4 -0.9" aria-label="Обшивка салона"><span class="hotspot-dot"></span><span class="hotspot-label">Обшивка салона</span></a>
+          <a class="hotspot3d" slot="hotspot-ceramic" href="#stage-4" data-position="-1.04 0.70 -1.10" data-normal="-1 0 0"  aria-label="Керамическое покрытие"><span class="hotspot-dot"></span><span class="hotspot-label">Керамика</span></a>
+          <a class="hotspot3d" slot="hotspot-body" href="#stage-1" data-position="-0.94 0.19 0.30"  data-normal="-1 0 0"    aria-label="Ремонт кузова"><span class="hotspot-dot"></span><span class="hotspot-label">Ремонт кузова</span></a>
+          <a class="hotspot3d" slot="hotspot-tuning" href="#stage-11" data-position="0.40 1.33 -2.20" data-normal="0 1 0"   aria-label="Внешний тюнинг"><span class="hotspot-dot"></span><span class="hotspot-label">Внешний тюнинг</span></a>
+          <a class="hotspot3d" slot="hotspot-wheel" href="#stage-13" data-position="-1.13 0.39 1.40" data-normal="-1 0 0"    aria-label="Реставрация дисков"><span class="hotspot-dot"></span><span class="hotspot-label">Реставрация дисков</span></a>
+        </model-viewer>
+        </div>
+
+        <p class="car-credit">3D-модель: <a href="https://sketchfab.com/3d-models/nissan-skyline-gtr-r35-7b142ea3376e4811a326256c59bbc7a2" target="_blank" rel="noopener">«Nissan Skyline GTR r35»</a> by Black Snow — CC BY 4.0</p>
       </div>
+
+      <p class="car-map-hint">Наведите на точку — увидите услугу. Итоговую стоимость подтверждаем после осмотра.</p>
     </div>
   </section>
 
-  <!-- ЭТАПЫ -->
-  <section class="section" id="process">
-    <div class="container">
-      <h2 class="section-title">Как мы работаем</h2>
-      <p class="section-sub">Понятный процесс от звонка до сдачи авто.</p>
+  <!-- ПУТЬ АВТОМОБИЛЯ (фон меняется по мере прокрутки) -->
+  <section class="journey" id="process">
+    <div class="stage-list">
 
-      <ol class="steps">
-        <li class="step reveal">
-          <span class="step-num">01</span>
-          <h3>Заявка и осмотр</h3>
-          <p>Уточняем задачу по телефону, затем бесплатно осматриваем авто и называем цену.</p>
-        </li>
-        <li class="step reveal">
-          <span class="step-num">02</span>
-          <h3>Мойка и подготовка</h3>
-          <p>Тщательная мойка и очистка — 80% результата детейлинга зависит от подготовки.</p>
-        </li>
-        <li class="step reveal">
-          <span class="step-num">03</span>
-          <h3>Основные работы</h3>
-          <p>Полировка, нанесение покрытий или плёнки. Фотоотчёт по каждому этапу.</p>
-        </li>
-        <li class="step reveal">
-          <span class="step-num">04</span>
-          <h3>Сдача и гарантия</h3>
-          <p>Показываем результат, даём рекомендации по уходу и гарантийный талон.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
+      <article class="stage-scene" data-bg-frame="1">
+        <div class="container">
+          <div class="stage-card reveal">
+            <span class="stage-num">01</span>
+            <h3>Ремонт кузова</h3>
+            <p>Убираем последствия дворов и бордюров: рихтовка, сварка, шпатлёвка. Выводим геометрию кузова обратно в заводскую.</p>
+            <span class="stage-price">от 3 000 ₽</span>
+          </div>
+        </div>
+      </article>
 
-  <!-- РАБОТЫ -->
-  <section class="section section-alt" id="works">
-    <div class="container">
-      <h2 class="section-title">Наши работы</h2>
-      <p class="section-sub">Примеры по направлениям — от полировки до защитных покрытий. Реальные фото «до/после» добавим из портфолио.</p>
+      <article class="stage-scene" data-bg-frame="2">
+        <div class="container">
+          <div class="stage-card reveal">
+            <span class="stage-num">02</span>
+            <h3>Полировка кузова</h3>
+            <p>Абразивная и защитная полировка: снимаем царапины, голограммы и матовость — лак снова глубокий и мокрый на вид.</p>
+            <span class="stage-price">от 8 000 ₽</span>
+          </div>
+        </div>
+      </article>
 
-      <div class="gallery">
-        <figure class="gallery-item reveal">
-          <img src="images/polish.jpg" alt="Полировка кузова автомобиля: машинка с синим полировальным кругом на чёрном крыле" loading="lazy" width="1200" height="900">
-          <figcaption>Полировка кузова</figcaption>
-        </figure>
-        <figure class="gallery-item reveal">
-          <img src="images/ceramic.jpg" alt="Керамическое покрытие: вода собирается в ровные капли на глянцевом чёрном капоте" loading="lazy" width="1200" height="900">
-          <figcaption>Керамика</figcaption>
-        </figure>
-        <figure class="gallery-item reveal">
-          <img src="images/interior.jpg" alt="Химчистка салона: чистка кожаного сиденья щёткой с пеной" loading="lazy" width="1200" height="900">
-          <figcaption>Химчистка салона</figcaption>
-        </figure>
-        <figure class="gallery-item reveal">
-          <img src="images/ppf.jpg" alt="Бронирование кузова полиуретановой плёнкой: нанесение плёнки на капот ракелем" loading="lazy" width="1200" height="900">
-          <figcaption>Бронирование PPF</figcaption>
-        </figure>
-        <figure class="gallery-item reveal">
-          <img src="images/headlights.jpg" alt="Полировка фар: половина фары мутная, вторая — прозрачная после полировки" loading="lazy" width="1200" height="900">
-          <figcaption>Полировка фар</figcaption>
-        </figure>
-        <figure class="gallery-item reveal">
-          <img src="images/rain.jpg" alt="Покрытие антидождь: капли воды скатываются со стекла автомобиля" loading="lazy" width="1200" height="900">
-          <figcaption>Антидождь</figcaption>
-        </figure>
-      </div>
+      <article class="stage-scene" data-bg-frame="3">
+        <div class="container">
+          <div class="stage-card reveal">
+            <span class="stage-num">03</span>
+            <h3>Покраска</h3>
+            <p>Подбираем цвет по коду и спектрофотометру, красим в камере — без пыли, шагрени и «пятен» на солнце.</p>
+            <span class="stage-price">от 6 000 ₽</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="stage-scene" data-bg-frame="4">
+        <div class="container">
+          <div class="stage-card reveal">
+            <span class="stage-num">04</span>
+            <h3>Керамическое покрытие</h3>
+            <p>Глянцевая или матовая керамика на 1–2 года: гидрофоб, стойкость к реагентам и мойкам, лёгкий уход.</p>
+            <span class="stage-price">от 25 000 ₽</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="stage-scene" data-bg-frame="5">
+        <div class="container">
+          <div class="stage-card reveal">
+            <span class="stage-num">05</span>
+            <h3>Химчистка салона</h3>
+            <p>Глубокая очистка текстиля, кожи и пластика. Убираем пятна, разводы и запахи — салон снова приятно открыть.</p>
+            <span class="stage-price">от 5 000 ₽</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="stage-scene" data-bg-frame="6">
+        <div class="container">
+          <div class="stage-card reveal">
+            <span class="stage-num">06</span>
+            <h3>Бронирование плёнкой (PPF)</h3>
+            <p>Полиуретановая плёнка на зоны риска: бампер, капот, пороги, фары. Камни и ветки достаются плёнке, а не лаку.</p>
+            <span class="stage-price">от 40 000 ₽</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="stage-scene" data-bg-frame="7">
+        <div class="container">
+          <div class="stage-card reveal">
+            <span class="stage-num">07</span>
+            <h3>Полировка фар</h3>
+            <p>Снимаем желтизну и помутнение, полируем и защищаем лаком. Свет ярче и ровнее, машина выглядит моложе.</p>
+            <span class="stage-price">от 3 000 ₽</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="stage-scene" data-bg-frame="8">
+        <div class="container">
+          <div class="stage-card reveal">
+            <span class="stage-num">08</span>
+            <h3>Антидождь на стёкла</h3>
+            <p>Гидрофобное покрытие: вода скатывается сама, видимость в дождь выше, дворники нужны реже.</p>
+            <span class="stage-price">от 2 500 ₽</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="stage-scene" data-bg-frame="9">
+        <div class="container">
+          <div class="stage-card reveal">
+            <span class="stage-num">09</span>
+            <h3>Покрытие лаком</h3>
+            <p>Финишный слой поверх полировки: глубина цвета, глянец и защита на сезон — без «серости» после моек.</p>
+            <span class="stage-price">от 4 000 ₽</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="stage-scene" data-bg-frame="10">
+        <div class="container">
+          <div class="stage-card reveal">
+            <span class="stage-num">10</span>
+            <h3>Обшивка салона</h3>
+            <p>Перетяжка сидений, руля и панелей: кожа, алькантара, контрастная строчка. Салон под ваш вкус, а не «как было».</p>
+            <span class="stage-price">от 15 000 ₽</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="stage-scene" data-bg-frame="11">
+        <div class="container">
+          <div class="stage-card reveal">
+            <span class="stage-num">11</span>
+            <h3>Внешний тюнинг</h3>
+            <p>Обвесы, спойлеры, карбон и диски. Подбираем детали под стиль авто и ставим с подгонкой, а не «на скотч».</p>
+            <span class="stage-price">по запросу</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="stage-scene" data-bg-frame="12">
+        <div class="container">
+          <div class="stage-card reveal">
+            <span class="stage-num">12</span>
+            <h3>Детейлинг двигателя</h3>
+            <p>Мойка подкапотного пространства с защитой электрики. Чистый мотор — честная диагностика и нормальный вид при продаже.</p>
+            <span class="stage-price">от 2 500 ₽</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="stage-scene" data-bg-frame="13">
+        <div class="container">
+          <div class="stage-card reveal">
+            <span class="stage-num">13</span>
+            <h3>Реставрация дисков</h3>
+            <p>Правка геометрии, шлифовка и покраска. Убираем бордюрные задирки, возвращаем ровный вид и нормальный баланс.</p>
+            <span class="stage-price">от 4 000 ₽</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="stage-scene stage-scene-final" data-bg-frame="14">
+        <div class="container">
+          <div class="stage-card stage-card-final reveal">
+            <span class="stage-num">Готово</span>
+            <h3>Забирайте как новое</h3>
+            <p>Проверяем каждый сантиметр при свете лампы, показываем фотоотчёт по этапам и отдаём авто с гарантией. Эта машина приехала битой — уехала как из салона.</p>
+            <a href="#booking" class="btn btn-primary">Записаться на детейлинг</a>
+          </div>
+        </div>
+      </article>
+
     </div>
   </section>
 

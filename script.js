@@ -332,4 +332,68 @@ document.addEventListener('DOMContentLoaded', function () {
     hintIo.observe(slider);
   });
 
+  /* ---------- 13. Фоновая история: кадры меняются при прокрутке ---------- */
+  var bgFrames = Array.prototype.slice.call(document.querySelectorAll('#bgStage .bg-frame'));
+  var bgScenes = Array.prototype.slice.call(document.querySelectorAll('[data-bg-frame]'));
+
+  if (bgFrames.length && bgScenes.length) {
+    var currentFrame = -1;
+
+    // Ленивая подгрузка: тянем кадр заранее, а не всю историю сразу
+    function loadFrame(i) {
+      for (var k = i; k <= i + 1 && k < bgFrames.length; k++) {
+        var f = bgFrames[k];
+        if (f && !f.getAttribute('src') && f.getAttribute('data-src')) {
+          f.setAttribute('src', f.getAttribute('data-src'));
+        }
+      }
+    }
+
+    function showFrame(i) {
+      if (i === currentFrame) return;
+      currentFrame = i;
+      bgFrames.forEach(function (f, idx) { f.classList.toggle('is-active', idx === i); });
+    }
+
+    var bgTicking = false;
+
+    function updateFrame() {
+      bgTicking = false;
+      var mid = window.innerHeight * 0.5;
+      var best = 0;
+      var bestDist = Infinity;
+
+      bgScenes.forEach(function (scene) {
+        var rect = scene.getBoundingClientRect();
+        var dist = Math.abs(rect.top + rect.height / 2 - mid);
+        if (dist < bestDist) {
+          bestDist = dist;
+          best = parseInt(scene.getAttribute('data-bg-frame'), 10) || 0;
+        }
+      });
+
+      loadFrame(best);
+      showFrame(best);
+    }
+
+    function requestFrameUpdate() {
+      if (bgTicking) return;
+      bgTicking = true;
+      requestAnimationFrame(updateFrame);
+    }
+
+    window.addEventListener('scroll', requestFrameUpdate, { passive: true });
+    window.addEventListener('resize', requestFrameUpdate, { passive: true });
+
+    loadFrame(0);
+    showFrame(0);
+    updateFrame();
+  }
+
+  /* ---------- 14. Якоря этапов: карта услуг ведёт к нужной сцене ---------- */
+  document.querySelectorAll('.stage-scene[data-bg-frame]').forEach(function (scene) {
+    var num = parseInt(scene.getAttribute('data-bg-frame'), 10);
+    if (num > 0 && !scene.id) scene.id = 'stage-' + num;
+  });
+
 });

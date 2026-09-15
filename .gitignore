@@ -2,6 +2,15 @@
 SPEC.md
 publish.cmd
 update.cmd
+preview.cmd
+server.mjs
+_view.html
+models/gtr-r35/scene.original.gltf
+# исходники модели остаются локально для пересборки, но в репозиторий не идут
+# (сайт грузит только сжатый models/gtr-r35/scene-opt.glb)
+models/gtr-r35/scene.gltf
+models/gtr-r35/scene.bin
+models/gtr-r35/textures/
 
 # Служебный мусор ОС и редакторов
 .DS_Store
