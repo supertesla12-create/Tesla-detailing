@@ -390,10 +390,4 @@ document.addEventListener('DOMContentLoaded', function () {
     updateFrame();
   }
 
-  /* ---------- 14. Якоря этапов: карта услуг ведёт к нужной сцене ---------- */
-  document.querySelectorAll('.stage-scene[data-bg-frame]').forEach(function (scene) {
-    var num = parseInt(scene.getAttribute('data-bg-frame'), 10);
-    if (num > 0 && !scene.id) scene.id = 'stage-' + num;
-  });
-
 });
