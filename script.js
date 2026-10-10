@@ -390,4 +390,126 @@ document.addEventListener('DOMContentLoaded', function () {
     updateFrame();
   }
 
+  /* ---------- 14. Расчёт стоимости услуги (пилот: полировка кузова) ---------- */
+  // Множители умножаются: цена = base × (класс авто) × (состояние) × (тип)
+  var CALC = {
+    polish: {
+      title: 'Полировка кузова',
+      base: 8000,                              // = минимум: хэтчбек, лёгкие царапины, защитная
+      service: 'polish',                       // value из <select id="service">
+      book: 'Записаться на полировку',
+      fields: [
+        { label: 'Класс авто', options: [
+          ['Мини / хэтчбек', 1.0], ['Седан', 1.15], ['Кроссовер', 1.35],
+          ['Внедорожник', 1.55], ['Премиум', 1.9]
+        ]},
+        { label: 'Состояние лака', options: [
+          ['Лёгкие царапины', 1.0], ['Голограммы', 1.25], ['Глубокая матовость', 1.6]
+        ]},
+        { label: 'Тип полировки', options: [
+          ['Защитная', 1.0], ['Абразивная', 1.3], ['Комбинированная', 1.6]
+        ]}
+      ]
+    }
+  };
+
+  var calcModal  = document.getElementById('calcModal');
+  var calcFields = document.getElementById('calcFields');
+  var calcValue  = document.getElementById('calcValue');
+  var calcTitle  = document.getElementById('calcTitle');
+  var calcBook   = document.getElementById('calcBook');
+  var lastFocus  = null;
+  var activeCalc = null;
+
+  function formatRub(n) {
+    return n.toLocaleString('ru-RU').replace(/\u00A0/g, ' ') + ' ₽';
+  }
+
+  function roundPrice(n) {
+    return Math.round(n / 500) * 500;
+  }
+
+  function recalc() {
+    if (!activeCalc) return;
+    var price = activeCalc.base;
+    calcFields.querySelectorAll('select').forEach(function (sel) {
+      price *= parseFloat(sel.value) || 1;
+    });
+    calcValue.textContent = 'от ' + formatRub(roundPrice(price));
+  }
+
+  function buildCalc(cfg) {
+    activeCalc = cfg;
+    calcTitle.textContent = cfg.title;
+    calcBook.textContent = cfg.book || 'Записаться';
+    calcFields.innerHTML = '';
+
+    cfg.fields.forEach(function (field) {
+      var group = document.createElement('label');
+      group.className = 'calc-field';
+
+      var caption = document.createElement('span');
+      caption.textContent = field.label;
+
+      var sel = document.createElement('select');
+      field.options.forEach(function (opt) {
+        var o = document.createElement('option');
+        o.value = opt[1];
+        o.textContent = opt[0];
+        sel.appendChild(o);
+      });
+      sel.addEventListener('change', recalc);
+
+      group.appendChild(caption);
+      group.appendChild(sel);
+      calcFields.appendChild(group);
+    });
+
+    recalc();
+  }
+
+  function openCalc(key) {
+    if (!calcModal || !CALC[key]) return;
+    buildCalc(CALC[key]);
+    lastFocus = document.activeElement;
+    calcModal.hidden = false;
+    document.body.classList.add('calc-open');
+    var firstSelect = calcFields.querySelector('select');
+    if (firstSelect) firstSelect.focus();
+  }
+
+  function closeCalc() {
+    if (!calcModal || calcModal.hidden) return;
+    calcModal.hidden = true;
+    document.body.classList.remove('calc-open');
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  document.querySelectorAll('.stage-calc').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      openCalc(btn.getAttribute('data-service'));
+    });
+  });
+
+  if (calcModal) {
+    calcModal.querySelectorAll('[data-calc-close]').forEach(function (el) {
+      el.addEventListener('click', closeCalc);
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeCalc();
+    });
+
+    if (calcBook) {
+      calcBook.addEventListener('click', function () {
+        // Подставляем услугу в форму заявки, затем плавный скролл к ней
+        if (form && activeCalc && activeCalc.service) {
+          var opt = fieldService.querySelector('option[value="' + activeCalc.service + '"]');
+          if (opt) fieldService.value = activeCalc.service;
+        }
+        closeCalc();
+      });
+    }
+  }
+
 });

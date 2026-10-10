@@ -194,6 +194,7 @@
             <h3>Полировка кузова</h3>
             <p>Абразивная и защитная полировка: снимаем царапины, голограммы и матовость — лак снова глубокий и мокрый на вид.</p>
             <span class="stage-price">от 8 000 ₽</span>
+            <button type="button" class="btn btn-ghost btn-sm stage-calc" data-service="polish">Рассчитать стоимость</button>
           </div>
         </div>
       </article>
@@ -584,6 +585,23 @@
     <button class="float-btn to-top" id="toTop" type="button" aria-label="Наверх" title="Наверх">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5l7 7-1.4 1.4L13 8.8V19h-2V8.8l-4.6 4.6L5 12z"/></svg>
     </button>
+  </div>
+
+  <!-- ОКНО РАСЧЁТА СТОИМОСТИ -->
+  <div class="calc-modal" id="calcModal" hidden>
+    <div class="calc-backdrop" data-calc-close></div>
+    <div class="calc-dialog" role="dialog" aria-modal="true" aria-labelledby="calcTitle">
+      <button class="calc-close" type="button" data-calc-close aria-label="Закрыть окно">×</button>
+      <h3 class="calc-title" id="calcTitle">Полировка кузова</h3>
+      <p class="calc-lead">Ответьте на пару вопросов — покажем примерную стоимость.</p>
+      <div class="calc-fields" id="calcFields"></div>
+      <div class="calc-result">
+        <span class="calc-result-label">Примерная стоимость</span>
+        <span class="calc-result-value" id="calcValue">от 8 000 ₽</span>
+        <span class="calc-result-note">Диапазон зависит от состояния авто. Точную цену подтверждаем после осмотра.</span>
+      </div>
+      <a href="#booking" class="btn btn-primary btn-block" id="calcBook">Записаться</a>
+    </div>
   </div>
 
   <script src="script.js"></script>
