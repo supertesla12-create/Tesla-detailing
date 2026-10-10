@@ -183,6 +183,7 @@
             <h3>Ремонт кузова</h3>
             <p>Убираем последствия дворов и бордюров: рихтовка, сварка, шпатлёвка. Выводим геометрию кузова обратно в заводскую.</p>
             <span class="stage-price">от 3 000 ₽</span>
+            <button type="button" class="btn btn-ghost btn-sm stage-calc" data-service="body">Рассчитать стоимость</button>
           </div>
         </div>
       </article>
@@ -206,6 +207,7 @@
             <h3>Покраска</h3>
             <p>Подбираем цвет по коду и спектрофотометру, красим в камере — без пыли, шагрени и «пятен» на солнце.</p>
             <span class="stage-price">от 6 000 ₽</span>
+            <button type="button" class="btn btn-ghost btn-sm stage-calc" data-service="paint">Рассчитать стоимость</button>
           </div>
         </div>
       </article>
@@ -217,6 +219,7 @@
             <h3>Керамическое покрытие</h3>
             <p>Глянцевая или матовая керамика на 1–2 года: гидрофоб, стойкость к реагентам и мойкам, лёгкий уход.</p>
             <span class="stage-price">от 25 000 ₽</span>
+            <button type="button" class="btn btn-ghost btn-sm stage-calc" data-service="ceramic">Рассчитать стоимость</button>
           </div>
         </div>
       </article>
@@ -228,6 +231,7 @@
             <h3>Химчистка салона</h3>
             <p>Глубокая очистка текстиля, кожи и пластика. Убираем пятна, разводы и запахи — салон снова приятно открыть.</p>
             <span class="stage-price">от 5 000 ₽</span>
+            <button type="button" class="btn btn-ghost btn-sm stage-calc" data-service="interior">Рассчитать стоимость</button>
           </div>
         </div>
       </article>
@@ -239,6 +243,7 @@
             <h3>Бронирование плёнкой (PPF)</h3>
             <p>Полиуретановая плёнка на зоны риска: бампер, капот, пороги, фары. Камни и ветки достаются плёнке, а не лаку.</p>
             <span class="stage-price">от 40 000 ₽</span>
+            <button type="button" class="btn btn-ghost btn-sm stage-calc" data-service="ppf">Рассчитать стоимость</button>
           </div>
         </div>
       </article>
@@ -250,6 +255,7 @@
             <h3>Полировка фар</h3>
             <p>Снимаем желтизну и помутнение, полируем и защищаем лаком. Свет ярче и ровнее, машина выглядит моложе.</p>
             <span class="stage-price">от 3 000 ₽</span>
+            <button type="button" class="btn btn-ghost btn-sm stage-calc" data-service="headlights">Рассчитать стоимость</button>
           </div>
         </div>
       </article>
@@ -261,6 +267,7 @@
             <h3>Антидождь на стёкла</h3>
             <p>Гидрофобное покрытие: вода скатывается сама, видимость в дождь выше, дворники нужны реже.</p>
             <span class="stage-price">от 2 500 ₽</span>
+            <button type="button" class="btn btn-ghost btn-sm stage-calc" data-service="rain">Рассчитать стоимость</button>
           </div>
         </div>
       </article>
@@ -272,6 +279,7 @@
             <h3>Покрытие лаком</h3>
             <p>Финишный слой поверх полировки: глубина цвета, глянец и защита на сезон — без «серости» после моек.</p>
             <span class="stage-price">от 4 000 ₽</span>
+            <button type="button" class="btn btn-ghost btn-sm stage-calc" data-service="gloss">Рассчитать стоимость</button>
           </div>
         </div>
       </article>
@@ -283,6 +291,7 @@
             <h3>Обшивка салона</h3>
             <p>Перетяжка сидений, руля и панелей: кожа, алькантара, контрастная строчка. Салон под ваш вкус, а не «как было».</p>
             <span class="stage-price">от 15 000 ₽</span>
+            <button type="button" class="btn btn-ghost btn-sm stage-calc" data-service="upholstery">Рассчитать стоимость</button>
           </div>
         </div>
       </article>
@@ -294,6 +303,7 @@
             <h3>Внешний тюнинг</h3>
             <p>Обвесы, спойлеры, карбон и диски. Подбираем детали под стиль авто и ставим с подгонкой, а не «на скотч».</p>
             <span class="stage-price">по запросу</span>
+            <button type="button" class="btn btn-ghost btn-sm stage-calc" data-service="tuning">Рассчитать стоимость</button>
           </div>
         </div>
       </article>
@@ -305,6 +315,7 @@
             <h3>Детейлинг двигателя</h3>
             <p>Мойка подкапотного пространства с защитой электрики. Чистый мотор — честная диагностика и нормальный вид при продаже.</p>
             <span class="stage-price">от 2 500 ₽</span>
+            <button type="button" class="btn btn-ghost btn-sm stage-calc" data-service="engine">Рассчитать стоимость</button>
           </div>
         </div>
       </article>
@@ -316,6 +327,7 @@
             <h3>Реставрация дисков</h3>
             <p>Правка геометрии, шлифовка и покраска. Убираем бордюрные задирки, возвращаем ровный вид и нормальный баланс.</p>
             <span class="stage-price">от 4 000 ₽</span>
+            <button type="button" class="btn btn-ghost btn-sm stage-calc" data-service="wheels">Рассчитать стоимость</button>
           </div>
         </div>
       </article>
@@ -512,11 +524,19 @@
           <select id="service" name="service" required>
             <option value="">— Выберите услугу —</option>
             <option value="wash">Комплексная мойка</option>
-            <option value="interior">Химчистка салона</option>
+            <option value="body">Ремонт кузова</option>
             <option value="polish">Полировка кузова</option>
+            <option value="paint">Покраска</option>
             <option value="ceramic">Керамическое покрытие</option>
+            <option value="interior">Химчистка салона</option>
             <option value="ppf">Бронирование плёнкой (PPF)</option>
+            <option value="headlights">Полировка фар</option>
             <option value="rain">Антидождь на стёкла</option>
+            <option value="gloss">Покрытие лаком</option>
+            <option value="upholstery">Обшивка салона</option>
+            <option value="tuning">Внешний тюнинг</option>
+            <option value="engine">Детейлинг двигателя</option>
+            <option value="wheels">Реставрация дисков</option>
           </select>
         </div>
         <div class="form-group">
